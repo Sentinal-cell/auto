@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class WebAutomationExample {
+public class Main {
     private static final String url = "jdbc:mysql://172.20.10.3:3306/scrape";
     private static final String usr = "ajiya";
     private static final String pass = "MUHHamad12$";
