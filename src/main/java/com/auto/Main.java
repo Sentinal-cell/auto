@@ -25,12 +25,11 @@ public class Main {
         // Loop to repeat the process for different sessions
         while (!pro) {
             // Set up WebDriver
-            System.setProperty("webdriver.chrome.driver", "C:/Users/Ahmad/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver-linux64");
 
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--remote-allow-origins=*");
             options.addArguments("--headless"); // Running in headless mode (optional)
 
             WebDriver driver = new ChromeDriver(options);
