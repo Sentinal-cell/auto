@@ -13,10 +13,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Main {
-    private static final String url = "jdbc:mysql://172.20.10.3:3306/scrape";
-    private static final String usr = "ajiya";
-    private static final String pass = "MUHHamad12$";
+public class WebAutomationExample {
+    private static final String url = "jdbc:mysql://localhost:3306/scrape";
+    private static final String usr = "root";
+    private static final String pass = "root";
 
     public static void main(String[] args) {
         int fad = 2461;
@@ -25,11 +25,12 @@ public class Main {
         // Loop to repeat the process for different sessions
         while (!pro) {
             // Set up WebDriver
-            System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver-linux64");
+            System.setProperty("webdriver.chrome.driver", "C:/Users/Ahmad/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe");
 
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--remote-allow-origins=*");
             options.addArguments("--headless"); // Running in headless mode (optional)
 
             WebDriver driver = new ChromeDriver(options);
@@ -62,14 +63,14 @@ public class Main {
                                     System.out.println("Alert is present: " +adm);
                                     System.out.println("False ");
                                 } else {
-                                    String name = driver.findElement(By.xpath("//strong[contains(text(),'NAME:')]")).getText().replaceFirst("NAME: ", "");
-                                    String a = driver.findElement(By.xpath("//h2[contains(text(),'N')]")).getText().replaceFirst("N", "").replace(",", "");
-                                    float am = Float.parseFloat(a);
-                                    int amount = (int) am;
-                                    System.out.println("Name: " + name);
-                                    System.out.println("Amount: " + a);
-                                    String update = "INSERT INTO students (name, admission_number, balance) VALUES ('" + name + "', '" + adm + "', " + amount + ")";
-                                    statement.executeUpdate(update);
+                                String name = driver.findElement(By.xpath("//strong[contains(text(),'NAME:')]")).getText().replaceFirst("NAME: ", "");
+                                String a = driver.findElement(By.xpath("//h2[contains(text(),'N')]")).getText().replaceFirst("N", "").replace(",", "");
+                                float am = Float.parseFloat(a);
+                                int amount = (int) am;
+                                System.out.println("Name: " + name);
+                                System.out.println("Amount: " + a);
+                                String update = "INSERT INTO students (name, admission_number, balance) VALUES ('" + name + "', '" + adm + "', " + amount + ")";
+                                statement.executeUpdate(update);
                                 }
                                 // Increment fad for next iteration or stop the loop
                                 if (fad < 2700) {
